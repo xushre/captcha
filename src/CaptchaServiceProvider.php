@@ -1,6 +1,6 @@
 <?php
 
-namespace Mews\Captcha;
+namespace Xushre\Captcha;
 
 use Illuminate\Support\ServiceProvider;
 

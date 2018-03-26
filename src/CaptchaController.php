@@ -1,6 +1,6 @@
 <?php
 
-namespace Mews\Captcha;
+namespace Xushre\Captcha;
 
 use Illuminate\Routing\Controller;
 
@@ -14,8 +14,9 @@ class CaptchaController extends Controller
     /**
      * get CAPTCHA
      *
-     * @param \Mews\Captcha\Captcha $captcha
+     * @param \Xushre\Captcha\Captcha $captcha
      * @param string $config
+     *
      * @return \Intervention\Image\ImageManager->response
      */
     public function getCaptcha(Captcha $captcha, $config = 'default')

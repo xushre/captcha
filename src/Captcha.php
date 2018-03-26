@@ -1,6 +1,6 @@
 <?php
 
-namespace Mews\Captcha;
+namespace Xushre\Captcha;
 
 /**
  * Laravel 5 Captcha package
@@ -425,9 +425,21 @@ class Captcha
             $value = $this->str->lower($value);
         }
 
-        $this->session->remove('captcha');
+        if ($this->config->get('captcha.remove', true)) {
+            $this->session->remove('captcha');
+        }
 
         return $this->hasher->check($value, $key);
+    }
+
+    /**
+     * Remove from session
+     */
+    public function remove()
+    {
+        if ($this->session->has('captcha')) {
+            $this->session->remove('captcha');
+        }
     }
 
     /**
