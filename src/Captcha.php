@@ -24,7 +24,7 @@ use Illuminate\Session\Store as Session;
 
 /**
  * Class Captcha
- * @package Mews\Captcha
+ * @package Xushre\Captcha
  */
 class Captcha
 {

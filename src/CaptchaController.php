@@ -6,7 +6,7 @@ use Illuminate\Routing\Controller;
 
 /**
  * Class CaptchaController
- * @package Mews\Captcha
+ * @package Xushre\Captcha
  */
 class CaptchaController extends Controller
 {

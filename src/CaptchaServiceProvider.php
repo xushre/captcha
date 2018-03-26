@@ -6,14 +6,15 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * Class CaptchaServiceProvider
- * @package Mews\Captcha
+ * @package Xushre\Captcha
  */
 class CaptchaServiceProvider extends ServiceProvider {
 
     /**
      * Boot the service provider.
      *
-     * @return null
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function boot()
     {
@@ -24,12 +25,12 @@ class CaptchaServiceProvider extends ServiceProvider {
 
         // HTTP routing
         if (strpos($this->app->version(), 'Lumen') !== false) {
-           $this->app->get('captcha[/{config}]', 'Mews\Captcha\LumenCaptchaController@getCaptcha');
+           $this->app->get('captcha[/{config}]', 'Xushre\Captcha\LumenCaptchaController@getCaptcha');
         } else {
             if ((double) $this->app->version() >= 5.2) {
-                $this->app['router']->get('captcha/{config?}', '\Mews\Captcha\CaptchaController@getCaptcha')->middleware('web');
+                $this->app['router']->get('captcha/{config?}', 'Xushre\Captcha\CaptchaController@getCaptcha')->middleware('web');
             } else {
-                $this->app['router']->get('captcha/{config?}', '\Mews\Captcha\CaptchaController@getCaptcha');
+                $this->app['router']->get('captcha/{config?}', 'Xushre\Captcha\CaptchaController@getCaptcha');
             }
         }
 
